@@ -1,15 +1,15 @@
 <script setup>
 import Home from './components/Home.vue'
 import Header from './components/Page/Header.vue'
-import {useStore} from "vuex";
-import {computed} from "vue";
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 
-const store = useStore()
-const user = computed(() => store.state.user.token)
+// const store = useStore()
+// const user = computed(() => store.state.user.token)
 </script>
 
 <template>
-    <Header v-if="user"/>
+    <Header/>
     <router-view></router-view>
 </template>
 

@@ -11,7 +11,7 @@
                 <div v-if="errorMsg" class="py-3 px-5 bg-red-500 text-white rounded">
                     {{errorMsg}}
                     <span @click="errorMsg = ''">
-                        
+
                     </span>
                 </div>
                 <input type="hidden" name="remember" value="true"/>
@@ -63,9 +63,9 @@
 
 <script setup>
 // import {LockClosedIcon} from '@heroicons/vue/20/solid'
-import store from "../../store/index.js";
-import {useRouter} from "vue-router";
-import {ref} from "vue";
+import store from '../../store/index.js'
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 const errorMsg = ref('')
 const router = useRouter()
@@ -74,13 +74,13 @@ const user = {
     password: '',
     remember: false
 }
-function login(ev) {
-    ev.preventDefault();
+function login (ev) {
+    ev.preventDefault()
 
     store.dispatch('login', user)
         .then(() => {
             router.push({
-                name: 'Dashboard'
+                name: 'News'
             })
         })
         .catch(err => {

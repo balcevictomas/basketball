@@ -4,8 +4,10 @@
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                             alt="Your Company"/>
+                        <router-link :to = "{ name: 'Home', to: { name: 'Home' } }">
+                            <img class="h-8 w-8" :src="basketballImg"
+                                 alt="Your Company"/>
+                        </router-link>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
@@ -88,24 +90,28 @@
 </template>
 
 <script setup>
-import {Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/vue'
-import {useStore} from "vuex";
-import {computed} from "vue";
-import {useRouter} from "vue-router";
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import basketballImg from '../../assets/header/Basketball_Clipart.png'
 
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-const store = useStore();
+const store = useStore()
 const user = computed(() => store.state.user.data)
 const navigation = [
-    {name: 'Dashboard', to: {name: 'Dashboard'}},
-    // {name: 'Team', href: '#', current: false},
+    { name: 'News', to: { name: 'News' } },
+    { name: 'Teams', to: { name: 'Teams' } },
+    { name: 'Players', to: { name: 'Players' } }
 ]
 const router = useRouter()
-function logout() {
-    store.commit('logout');
-    router.push({
-        name: 'Login'
-    })
+function logout () {
+    store.dispatch('logout')
+        .then(() => {
+            router.push({
+                name: 'Login'
+            })
+        })
 }
 </script>
 

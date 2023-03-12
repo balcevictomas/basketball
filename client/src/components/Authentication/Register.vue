@@ -46,24 +46,24 @@
 </template>
 
 <script setup>
-import store from "../../store/index.js";
-import {useRouter} from "vue-router";
+import store from '../../store/index.js'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const user = {
     name: '',
     email: '',
     password: '',
-    passwordConfirmation: '',
+    passwordConfirmation: ''
 }
 
-function register(ev) {
-    ev.preventDefault();
+function register (ev) {
+    ev.preventDefault()
 
     store.dispatch('register', user)
         .then((res) => {
             router.push({
-                name: 'Dashboard'
+                name: 'News'
             })
         })
 }
