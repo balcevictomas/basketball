@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\News\NewsController;
 use App\Http\Controllers\Api\Players\PlayerController;
 use App\Http\Controllers\Api\Teams\TeamController;
 use App\Http\Controllers\Auth\AuthController;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group(static function() {
-    Route::get('/user', function (Request $request) {
+    Route::get('/user', static function (Request $request) {
         return $request->user();
     });
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -28,4 +29,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/teams', [TeamController::class, 'index']);
 Route::get('/players', [PlayerController::class, 'showAll']);
-Route::get('/player/{id}', [PlayerController::class, 'showOne']);
+Route::get('/player/{id}', [PlayerController::class, 'showSingle']);
+Route::get('/news', [NewsController::class, 'showAll']);
+Route::get('/news/{id}', [NewsController::class, 'showSingle']);

@@ -7,13 +7,13 @@
     <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             <ul>
-                <li :key="index" v-for="(team, index) in players">
-                    <a href="#" class="player flex block max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <li :key="index" v-for="(player, index) in players">
+                    <router-link :to="{name: 'Player', params: {slug: player.slug, id: 1}}" class="player flex block max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         <div class="flex player-description">
-                            <img width="90" height="155" :src="team.image_url" alt="">
-                            <h5 class="mb-2 flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{team.fullName}}</h5>
+                            <img width="90" height="155" :src="player.image_url" alt="">
+                            <h5 class="mb-2 flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{player.fullName}}</h5>
                         </div>
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -30,6 +30,7 @@ type Player = {
     name: string,
     surname: string,
     fullName: string,
+    slug: string,
     team: number,
     image_url: string
 

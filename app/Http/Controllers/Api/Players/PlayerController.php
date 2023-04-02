@@ -16,16 +16,18 @@ class PlayerController
         $players = Players::query()->get();
         $players->each(static function (Players $player) {
             $player->setAttribute('fullName', $player->getFullNameAttribute());
+            $player->setAttribute('slug', $player->getSlugAttribute());
         });
 
         return response(['data' => $players]);
     }
 
-    public function showOne(int $id): Response|Application|ResponseFactory
+    public function showSingle(int $id): Response|Application|ResponseFactory
     {
         /** @var Players $player */
         $player = Players::query()->find($id);
         $player->setAttribute('fullName', $player->getFullNameAttribute());
+
         return response(['data' => $player]);
     }
 }

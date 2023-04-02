@@ -24,4 +24,9 @@ class Players extends Model
     {
         return sprintf('%s %s', $this->name, $this->surname);
     }
+
+    public function getSlugAttribute(): string
+    {
+        return sprintf('%s-%s', strtolower($this->name), strtolower($this->surname));
+    }
 }

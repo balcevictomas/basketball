@@ -13,6 +13,9 @@
                 </div>
             </div>
         </div>
+        <div>
+            No players currently
+        </div>
     </main>
 </template>
 

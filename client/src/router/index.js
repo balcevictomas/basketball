@@ -7,6 +7,7 @@ import Home from '../components/Home.vue'
 import Teams from '../components/Teams.vue'
 import Players from '../components/Players.vue'
 import Player from '../components/Player.vue'
+import SingleNews from '../components/SingleNews.vue'
 
 const routes = [
     {
@@ -29,6 +30,12 @@ const routes = [
         path: '/news',
         name: 'News',
         component: News
+        // meta: { requiresAuth: true }
+    },
+    {
+        path: '/news/:id',
+        name: 'SingleNews',
+        component: SingleNews
         // meta: { requiresAuth: true }
     },
     {
