@@ -1,5 +1,5 @@
-import axios from "axios";
-import store from "./store/index.js";
+import axios from 'axios'
+import store from './store/index.js'
 
 const axiosClient = axios.create({
     baseURL: 'http://localhost:8000'
@@ -7,7 +7,7 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${store.state.user.token}`
-    return config;
+    return config
 })
 
-export default axiosClient;
+export default axiosClient

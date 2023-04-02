@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\Teams\IndexController;
+use App\Http\Controllers\Api\Players\PlayerController;
+use App\Http\Controllers\Api\Teams\TeamController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,6 @@ Route::middleware('auth:sanctum')->group(static function() {
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/teams', [IndexController::class, 'index']);
+Route::get('/teams', [TeamController::class, 'index']);
+Route::get('/players', [PlayerController::class, 'showAll']);
+Route::get('/player/{id}', [PlayerController::class, 'showOne']);

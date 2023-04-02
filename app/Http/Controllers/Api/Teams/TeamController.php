@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api\Teams;
 
 use App\Models\Teams;
 
-class IndexController
+class TeamController
 {
     public function index()
     {

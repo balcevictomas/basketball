@@ -8,7 +8,7 @@
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             <ul>
                 <li :key="index" v-for="(team, index) in teams">
-                    <a href="#" class="flex block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <a href="#" class="team flex block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         <img :src="team.image_url" alt="">
                         <h5 class="mb-2 flex items-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{team.name}}</h5>
                     </a>
@@ -38,6 +38,11 @@ axiosClient.get('/api/teams')
     })
 </script>
 
-<style scoped>
-
+<style lang="postcss" scoped>
+.team {
+    transition: transform .2s ease; /* Animation */
+}
+.team:hover {
+    transform: scale(1.2);
+}
 </style>

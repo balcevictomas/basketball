@@ -6,6 +6,7 @@ import store from '../store/index.js'
 import Home from '../components/Home.vue'
 import Teams from '../components/Teams.vue'
 import Players from '../components/Players.vue'
+import Player from '../components/Player.vue'
 
 const routes = [
     {
@@ -39,6 +40,11 @@ const routes = [
         path: '/players',
         name: 'Players',
         component: Players
+    },
+    {
+        path: '/player/:slug/:id',
+        name: 'Player',
+        component: Player
     }
 ]
 
